@@ -1,0 +1,67 @@
+/* ---------------------------------------------------------------------------- */
+/* --- 3. FOOTER
+/* ----------------------------------------------------------------------------- */
+
+	#footer {
+		position: relative;
+		// padding: 60px 0 0;
+		font-size: 12px;
+	}
+
+	.copyright {
+    height: 60px;
+    line-height: 60px;
+	}
+	.footer-logo {
+		max-height: 45.167px;
+	}
+
+	.terms-wrapper {
+    float: left;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+	}
+	.terms {
+    display: inline-block;
+    a {
+    	&:hover {
+    		color: $color-primary;
+    		text-decoration: under;
+    	}
+    }
+	}
+	@media screen and (max-width: 768px) {
+		.copyright {
+			height: auto;
+		}
+		.copyright div {
+			width: 100%;
+			text-align: center;
+		}
+		.copyright .pull-left, 
+		.copyright .pull-right .terms a {
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			margin-top: 18px;
+		}
+		.terms-wrapper {
+			float: left;
+			transform: translateX(0);
+			left: 0;
+			position: relative;
+			margin-right: 10px;
+		}
+		.copyright div {
+			width: 100%;
+			text-align: center;
+		}
+		.copyright div {
+			width: 100%;
+			text-align: center;
+		}
+		.copyright-text-wrapper {
+			float: left;
+		}
+	}

@@ -1,0 +1,19 @@
+$body_padding: 100px;
+
+.profile-page {
+  .avatar {
+    background-size: cover;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .section-content  {
+    min-height: calc(100% - #{$body_padding})
+  }
+  .template-rating {
+    margin-bottom: 10px;
+    i {
+      font-size: 20px
+    }
+  }
+}

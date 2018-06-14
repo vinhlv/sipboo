@@ -1,0 +1,123 @@
+.sidebar-widget-pagination {
+  background-color: #fff;
+  a {
+    cursor: pointer;
+  }
+  .pagination > li:first-child a, .pagination > li:last-child a {
+    background: transparent;
+    color: #313131;
+    width: auto;
+    font-weight: 500;
+    font-size: 12px;
+    position: relative;
+    top: 0px;
+    height: auto;
+    padding: 7px 20px;
+  }
+}
+.table {
+  .animated-background {
+    height: 14px;
+  }
+  &.table-sipboo {
+    .table-200 {
+      width: 200px;
+    }
+    .table-100 {
+      width: 100px;
+    }
+    .table-40 {
+      width: 40px;
+    }
+    .table-150 {
+      width: 150px;
+    }
+    .table-240 {
+      width: 240px;
+    }
+    thead {
+      th {
+        background-color: #4e2c8e;
+        padding: 12px;
+        color: #fff;
+      }
+    }
+    tbody {
+      td {
+        text-align: left;
+        .delete {
+          padding: 10px 5px;
+          line-height: 40px;
+          color: #4e2c8e;
+          font-size: 18px;
+        }
+        i {
+          font-size: 18px;
+          line-height: 40px;
+          &.red {
+            color: red;
+          }
+          &.silver {
+            color: #cbcbcb;
+          }
+        }
+        &.table-report {
+          text-align: center;
+          span {
+            display: inline-block;
+            vertical-align: top;
+            font-weight: 400;
+            width: 100%;
+           
+          }
+        }
+        .font-bold {
+          font-weight: 600!important;
+        }
+        .table-rest {
+          div {
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+          a {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 10px;
+            font-weight: 600;
+            width: calc(100% - 80px);
+          }
+        }
+        .table-avatar {
+          div {
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+          span {
+            display: inline-block;
+            vertical-align: top;
+            font-weight: 400;
+            width: 100%;
+           
+          }
+        }
+        
+      }
+      tr {
+        &:nth-child(even) {
+          td {
+            background-color: #f9f9f9;
+          }
+        }
+      }
+    }
+  }
+}

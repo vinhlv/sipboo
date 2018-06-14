@@ -1,0 +1,16 @@
+
+form {
+  .btn-fullwidth {
+    width: 100%;
+  }
+  .form-group {
+    &.form-group-cust {
+      position: relative;
+      overflow: hidden;
+      height: auto;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 0px;
+    }
+  }
+}
