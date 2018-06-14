@@ -39,7 +39,7 @@ class UserProfile extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
-    
+
   }
   handleHire(shiper){
     let {isLogin} = this.state;
@@ -53,7 +53,7 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div id="content" className="profile-page">
-        
+
         <section className="section-xs section-content">
           <div className="container">
             <div className="row v-center-items first-col-title">
@@ -102,7 +102,7 @@ class UserProfile extends React.Component {
             </div>
           </div>
         </section>
-        
+
       </div>
     );
   }

@@ -30,7 +30,7 @@ class RestaurantsManage extends React.Component {
       limit: this.state.limit,
       page: this.state.pagination.page
     }
-    
+
     this.setState({loading: true, dataList: []});
     Admin.actions.restaurants.request(null, params).then(res => {
       if (res.data && res.data.data) {
@@ -61,10 +61,10 @@ class RestaurantsManage extends React.Component {
       Admin.actions.delRestaurants.request(null, {
         rest_id: rest_id
       }).then(res => {
-        
+
         browserHistory.push(`/manage/restaurants?page=${1}`);
       });
-    } 
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -73,7 +73,7 @@ class RestaurantsManage extends React.Component {
       this.state.pagination.page = newPage;
       this.getRests();
       // if (newKeyword != oldKeyword || oldPage != newPage || oldCat != newCat) {
-        
+
       // }
     }
   }
@@ -173,7 +173,7 @@ class RestaurantsManage extends React.Component {
                                 ) : null
                               }
 
-                              
+
                             </td>
                             <td>{moment(item.last_updated_rest).format("YYYY-MM-DD hh:mm:ss A")}</td>
                             <td>
@@ -199,7 +199,7 @@ class RestaurantsManage extends React.Component {
 
                 </div>
               </div>
-              
+
             </div>
           </div>
         </section>

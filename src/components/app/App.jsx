@@ -63,7 +63,7 @@ class App extends React.Component {
   }
 
   videoBox() {
-    
+
   }
 
   setFilterSelector() {

@@ -15,12 +15,12 @@ class ManageSMS extends React.Component {
   }
 
   componentDidMount() {
-  
+
   }
 
 
   componentWillReceiveProps(nextProps) {
-    
+
   }
   toggleModal(name, status, otherName = '') {
   	this.setState({
@@ -34,7 +34,7 @@ class ManageSMS extends React.Component {
   	}
   }
   handleSubmit(event) {
-    
+
   	if (this.validateForm()) {
 	  	let params = {
 	  		phone: this.state.phone.trim(),
@@ -47,7 +47,7 @@ class ManageSMS extends React.Component {
       }, () => {
         Admin.actions.sendSMS.request(null, params).then(res => {
           if (res.data) {
-            
+
           }
           this.setState({
             loading: false,
@@ -65,13 +65,13 @@ class ManageSMS extends React.Component {
           }
         });
       });
-	  	
+
       // +1914-573-4727
     }
     event.preventDefault();
   }
 
-  
+
 	handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -121,7 +121,7 @@ class ManageSMS extends React.Component {
                     >
                       Send
                     </LaddaButton>
-                  
+
                   </div>
                 </form>
               </div>

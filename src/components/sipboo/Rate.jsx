@@ -12,14 +12,14 @@ class Rate extends React.Component {
   //   super(props);
   // }
 
- 
+
 
   render() {
     let star = this.props.star;
     return (
       <div className="template-rating">
         {
-          star == 5 ? 
+          star == 5 ?
           (
             <div className="rate">
             <i className="fa fa-star active"></i>
@@ -31,7 +31,7 @@ class Rate extends React.Component {
           ) : (null)
         }
         {
-          star == 4 ? 
+          star == 4 ?
           (
             <div className="rate">
             <i className="fa fa-star active"></i>
@@ -43,7 +43,7 @@ class Rate extends React.Component {
           ) : (null)
         }
         {
-          star == 3 ? 
+          star == 3 ?
           (
             <div className="rate">
             <i className="fa fa-star active"></i>
@@ -55,7 +55,7 @@ class Rate extends React.Component {
           ) : (null)
         }
         {
-          star == 2 ? 
+          star == 2 ?
           (
             <div className="rate">
             <i className="fa fa-star active"></i>
@@ -67,7 +67,7 @@ class Rate extends React.Component {
           ) : (null)
         }
         {
-          star == 1 ? 
+          star == 1 ?
           (
             <div className="rate">
             <i className="fa fa-star active"></i>
@@ -79,7 +79,7 @@ class Rate extends React.Component {
           ) : (null)
         }
         {
-          star == 0 ? 
+          star == 0 ?
           (
             <div className="rate">
             <i className="fa fa-star "></i>

@@ -6,7 +6,7 @@ import { API_URL } from 'config';
 // const cookies = new Cookies();
 
 export default reduxApi({
-  
+
   save: {
     url: `${API_URL}/orders/save`,
     options: (url, _params = {}, getState) => {

@@ -29,7 +29,7 @@ class Categories extends React.Component {
       this.setState({loadingSub: false});
     });
   }
-  
+
   getCategories() {
 
     User.actions.getCategories.request().then(res => {
@@ -41,7 +41,7 @@ class Categories extends React.Component {
 
     });
   }
-  
+
 
   render() {
     return (

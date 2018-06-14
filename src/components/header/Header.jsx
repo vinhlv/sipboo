@@ -49,15 +49,15 @@ class Header extends React.Component {
 			orders: [],
 			totalQuantity: 0
 		}
-		
+
 		this.initOrder = this.initOrder.bind(this);
 		this.forceOrder = this.forceOrder.bind(this);
-		
+
 	}
 	initOrder() {
 		this.forceOrder();
 	}
-	
+
 	forceOrder() {
 		if(this.props.routeName == 'rest_detail') {
 
@@ -67,13 +67,13 @@ class Header extends React.Component {
 				orders: orderCache
 			})
 		}
-		
+
 	}
 
   componentDidMount() {
   	if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => {
-        
+
       });
     }
     this.forceOrder();
@@ -222,7 +222,7 @@ class Header extends React.Component {
 						localStorage.setItem('lat', params.lat);
 						localStorage.setItem('lng', params.lng);
 					});
-					
+
 				}).catch( (error) => {
 					this.setState({loadingReg: false});
 					if (error.response && error.response.data) {
@@ -272,7 +272,7 @@ class Header extends React.Component {
 					});
 				});
 			}
-	  	
+
   	}
   }
 
@@ -497,23 +497,23 @@ class Header extends React.Component {
 														);
 													})
 												}
-												
+
 											</ul>
 											<div className="cart-bottom">
 												<Link to={"/restaurant/order/"+(window.location.pathname.replace("/restaurant/","")) } className="btn btn-filled btn-primary btn-sm btn-block">Checkout <i className="i-after ti-arrow-right"></i></Link>
 											</div>
 										</div>
-										
+
 										<span id="notification-number" className="notification notification-number">0</span>
-										
-										
+
+
 									</div>
 								:''
 							}
 
 						</nav>
 
-						
+
 					</div>
 
 				</div>
@@ -566,7 +566,7 @@ class Header extends React.Component {
 				<Modal show={this.state.showSignup} dialogClassName="login-modal" onHide={this.toggleModal.bind(this, 'showSignup', false, '')}>
         	<div className="container-fluid">
         		<div className="email-login">
-        		
+
         			<h4 className="title">Sign Up</h4>
 							{this.state.errMsgReg != '' ? <div className="alert alert-danger login-email-error">{this.state.errMsgReg}</div> : ''}
 							{this.state.signupCode.step === 2 && this.state.errMsgReg == '' ? <div className="alert alert-success login-email-error">Your code has been successfully sent</div> : ''}
@@ -596,11 +596,11 @@ class Header extends React.Component {
 											<div className="form-group">
 												<input type="text" className="form-control" placeholder="Enter your code" value={this.state.code} name="code" onChange={this.handleChange.bind(this)}/>
 											</div>
-											
+
 										</div>
 									) : null
 								}
-      					
+
 
 		            <LaddaButton
 					        loading={this.state.loadingReg}
@@ -616,7 +616,7 @@ class Header extends React.Component {
 										"Submit"
 									)
 								}
-					        
+
 					      </LaddaButton>
 				      </form>
 				      <div className="terms">By signing up, I agree to <a href="javascript:void(0)" className="text-primary">Sipboo? Terms of Service, Policy, Payments Terms of Service.</a></div>

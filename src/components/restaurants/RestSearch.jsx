@@ -48,7 +48,7 @@ class RestSearch extends React.Component {
       let newPage = nextProps.location && nextProps.location.query ? nextProps.location.query.page : 1;
       // let oldCat = this.props.location && this.props.location.query ? this.props.location.query.category : '';
       let newCat = nextProps.location && nextProps.location.query ? nextProps.location.query.category : '';
-      
+
       let newType = nextProps.location && nextProps.location.query ? nextProps.location.query.type : 'restaurant';
       this.setState({
         type: newType
@@ -58,7 +58,7 @@ class RestSearch extends React.Component {
         this.getRestByKeyword(newKeyword);
       })
       // if (newKeyword != oldKeyword || oldPage != newPage || oldCat != newCat) {
-        
+
       // }
     }
   }
@@ -70,7 +70,7 @@ class RestSearch extends React.Component {
         limit: this.state.limit,
         page: this.state.pagination.page
       }
-      
+
       this.setState({loading: true, dataList: []});
       User.actions.getSearchSipboo.request(null, params).then(res => {
         if (res.data && res.data.data) {
@@ -118,7 +118,7 @@ class RestSearch extends React.Component {
         this.setState({loading: false});
       });
     }
-    
+
   }
   getCategories() {
 
@@ -152,7 +152,7 @@ class RestSearch extends React.Component {
                   <div className="avatar" style={{
                         backgroundImage: `url(${ item.avatar ? item.avatar.replace("/upload/","/upload/w_130,h_130,c_thumb/w_130/") : noAvatar })`
                       }}></div>
-    
+
                 </div>
               </Link>
               <p className="name"><strong>{item.fullname}</strong></p>
@@ -199,8 +199,8 @@ class RestSearch extends React.Component {
         );
       });
     }
-    
-    
+
+
     let startNum = ((this.state.pagination.page-1)*this.state.limit)+1;
     let endNum = this.state.pagination.page*this.state.limit;
     return (
@@ -231,8 +231,8 @@ class RestSearch extends React.Component {
                           <li className=""><Link to={`/rest/search?q=&page=1&type=sipboo`} role="tab" data-toggle="tab" aria-expanded="false">Star Sipboo</Link></li>
                         )
                       }
-                        
-                        
+
+
                       </ul>
                       </div>
                     </div>
@@ -262,7 +262,7 @@ class RestSearch extends React.Component {
                     null
                   )
                 }
-                
+
               </div>
               <div className="content col-md-9">
                 <div className="sidebar-widget sidebar-widget-custom1">
@@ -270,11 +270,11 @@ class RestSearch extends React.Component {
                   {
                     this.state.type == 'restaurant' ? (
                       <span>Best Restaurants </span>
-                    ): ( 
+                    ): (
                       <span>Our Star Sipboo </span>
                     )
                   }
-                    
+
                     in Da Nang city
                   </div>
                   <div className="widget-search ng-binding">
@@ -312,8 +312,8 @@ class RestSearch extends React.Component {
                   :''
                 }
                 <div className="section-star-coolpals">{childElements}</div>
-                
-                
+
+
                 <div className="sidebar-widget sidebar-widget-custom1 sidebar-widget-pagination">
                   <ReactPaginate
                     breakLabel={<a href="javascript:void(0)">...</a>}

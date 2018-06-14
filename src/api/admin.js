@@ -6,7 +6,7 @@ import { API_URL } from 'config';
 // const cookies = new Cookies();
 
 export default reduxApi({
-  
+
   restaurants: {
     url: `${API_URL}/admins/rest`,
     options: (url, _params = {}, getState) => {

@@ -31,7 +31,7 @@ class UsersManage extends React.Component {
       limit: this.state.limit,
       page: this.state.pagination.page
     }
-    
+
     this.setState({loading: true, dataList: []});
     Admin.actions.users.request(null, params).then(res => {
       if (res.data && res.data.data) {
@@ -62,10 +62,10 @@ class UsersManage extends React.Component {
       Admin.actions.delUser.request(null, {
         user_id: user_id
       }).then(res => {
-        
+
         browserHistory.push(`/manage/users?page=${1}`);
       });
-    } 
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -74,7 +74,7 @@ class UsersManage extends React.Component {
       this.state.pagination.page = newPage;
       this.getUsers();
       // if (newKeyword != oldKeyword || oldPage != newPage || oldCat != newCat) {
-        
+
       // }
     }
   }
@@ -125,7 +125,7 @@ class UsersManage extends React.Component {
                         return (
                           <tr key={i}>
                             <td>{i + 1}</td>
-                            
+
                             <td>
                               <div className="table-avatar text-center">
                                 <div style={{
@@ -154,7 +154,7 @@ class UsersManage extends React.Component {
                                 ) : null
                               }
 
-                              
+
                             </td>
                             <td>{moment(item.last_updated_rest).format("YYYY-MM-DD hh:mm:ss A")}</td>
                             <td>
@@ -180,7 +180,7 @@ class UsersManage extends React.Component {
 
                 </div>
               </div>
-              
+
             </div>
           </div>
         </section>

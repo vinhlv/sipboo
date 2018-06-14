@@ -16,16 +16,16 @@ class ManageAPN extends React.Component {
   }
 
   componentDidMount() {
-  
+
   }
 
 
   componentWillReceiveProps(nextProps) {
-    
+
   }
-  
+
   handleSubmit(event) {
-    
+
   	if (this.validateForm()) {
 	  	let params = {
 	  		content: this.state.message,
@@ -42,7 +42,7 @@ class ManageAPN extends React.Component {
       }, () => {
         Admin.actions.sendAPN.request(null, params).then(res => {
           if (res.data) {
-            
+
           }
           this.setState({
             loading: false,
@@ -61,13 +61,13 @@ class ManageAPN extends React.Component {
           event.preventDefault();
         });
       });
-	  	
+
       // +1914-573-4727
     }
     event.preventDefault();
   }
 
-  
+
 	handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -123,7 +123,7 @@ class ManageAPN extends React.Component {
                     >
                       Send
                     </LaddaButton>
-                  
+
                   </div>
                 </form>
               </div>

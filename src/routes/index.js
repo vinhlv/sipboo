@@ -40,7 +40,7 @@ export default function routes({ dispatch }) {
       component: RestaurantOrder,
       name: 'restaurant_order'
     },
-    
+
     {
     	path: "terms",
       component: Terms,

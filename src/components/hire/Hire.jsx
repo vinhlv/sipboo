@@ -69,21 +69,21 @@ export class Hire extends React.Component {
           window.location.href = `http://admin.sipboo.com/api/payment?invoice_id=${params.invoice_id}&type=visa_bank_sipboo&redirect=hide_sipboo`;
           // windowPayment = window.open(`http://admin.sipboo.com/api/payment?invoice_id=${params.invoice_id}&type=visa_bank_sipboo`, "Visa banking", "centerscreen=yes,width=768,height=680");
         }
-        windowPayment.onload = function() { 
+        windowPayment.onload = function() {
           windowPayment.RunCallbackFunction = function() {
             console.warn(window)
-          }; 
+          };
         };
       })
-      
-      
-    
+
+
+
     }).catch( (error) => {
-       
-	      
+
+
     });
   }
-    
+
   changePaymentType(type) {
     this.setState({
       paymenttype: {
@@ -129,7 +129,7 @@ export class Hire extends React.Component {
       let lat2 = address2.geometry.location.lat();
       let lng2 = address2.geometry.location.lng();
       // let distance = this.calDistance(lat1, lng1, lat2, lng2, "K");
-      
+
       Orders.actions.getDistance.request(null, {
         origin: [lat1, lng1].join(","),
         destination: [lat2, lng2].join(",")
@@ -146,7 +146,7 @@ export class Hire extends React.Component {
         } catch(e) {
 
         }
-        
+
         let params = {
           distance: distance
         };
@@ -175,27 +175,27 @@ export class Hire extends React.Component {
             }
           }, () => {
           });
-          
+
         }).catch( (error) => {
           if (error.response && error.response.data) {
-            
+
           //   this.setState({errorMessage: error.response.data.message});
             console.log( error.response.data)
           }
-          
+
         });
-        
-	  		
+
+
 	  	}).catch( (error) => {
-       
-	      
+
+
 	    });
-      
+
     }
-    
+
   }
   calDistance(lat1, lon1, lat2, lon2, unit) {
-    
+
     return 0;
   }
   componentDidMount(){
@@ -223,9 +223,9 @@ export class Hire extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     }, () => {
-      
+
     });
-    
+
   }
   render(){
     // let state = this.state
@@ -237,7 +237,7 @@ export class Hire extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-lg-10 col-sm-push-1  col-md-10 col-xs-12 ">
-              
+
               <div className="col-lg-4  col-md-4 col-xs-12 section-star-coolpals">
                 <div className="star-coolpals">
                   <div className="sb-avatar" >
@@ -249,12 +249,12 @@ export class Hire extends React.Component {
                   <p className="name"><strong>{this.state.user.fullname}</strong></p>
                   <p className="small-text">{this.state.user.phone}</p>
                   <Rate star={this.state.user.star}/>
-                  
+
                 </div>
               </div>
-              
+
                 {/* MyMapComponent */}
-            
+
             <div className="col-lg-6  col-md-6 col-xs-12">
               <div className="text-center">
                 <h3>Hire a Sipboo</h3>
@@ -282,8 +282,8 @@ export class Hire extends React.Component {
                     </dl>
                   )
                 }
-                
-                
+
+
                 <dl className="description-2 mb-5">
                   <dt>Shipping detail</dt>
                 </dl>
@@ -292,24 +292,24 @@ export class Hire extends React.Component {
                     <input type="checkbox" defaultChecked  disabled id="shipping1"/><label htmlFor="shipping1">Sipboo fee (+{ (this.state.fee.sipboo_rate + this.state.fee.onepay_rate) || 0}%)</label>
                   </div>
                   <div className="radio">
-                    <input type="checkbox" defaultChecked disabled id="shipping2"/><label htmlFor="shipping2">Truemoney fee - 1pay 
+                    <input type="checkbox" defaultChecked disabled id="shipping2"/><label htmlFor="shipping2">Truemoney fee - 1pay
                     (+{this.state.fee.onepay_fee.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})})</label>
                   </div>
-                  
+
                 </div>
-              
-                
+
+
                 <dl className="description-2 mb-5">
                   <dt>Payment method</dt>
                 </dl>
                 <div className="form-group">
                   <div className="radio">
-                    <input type="radio" value={this.state.paymenttype.local} 
+                    <input type="radio" value={this.state.paymenttype.local}
                     onChange={this.changePaymentType.bind(this, 0)} id="paymenttype1"
                     checked={this.state.paymenttype.type === 0}/><label htmlFor="paymenttype1">Local banking</label>
                   </div>
                   <div className="radio">
-                    <input type="radio" value={this.state.paymenttype.visa} 
+                    <input type="radio" value={this.state.paymenttype.visa}
                     onChange={this.changePaymentType.bind(this, 1)} id="paymenttype12"
                     checked={this.state.paymenttype.type === 1} /><label htmlFor="paymenttype12">Visa - creditcard</label>
                   </div>
@@ -324,7 +324,7 @@ export class Hire extends React.Component {
                       {
                         (
                           (this.state.price.total)
-                          + 
+                          +
                           (this.state.price.total * (this.state.fee.sipboo_rate + this.state.fee.onepay_rate) / 100)
                           +
                           (this.state.fee.onepay_fee)
@@ -337,7 +337,7 @@ export class Hire extends React.Component {
                 <hr/>
                 <Link onClick={this.checkOut.bind(this)} className="btn btn-filled btn-primary btn-block pull-left">Payment <i className="i-after ti-arrow-right"></i></Link>
 
-              
+
               </div>
             </div>
             {/* <div className="col-lg-7 col-xs-12">
@@ -347,8 +347,8 @@ export class Hire extends React.Component {
         </div>
       </section>
     </div>
-    
-    
+
+
     )
   }
 }

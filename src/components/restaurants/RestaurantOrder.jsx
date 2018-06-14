@@ -82,24 +82,24 @@ class RestaurantOrder extends React.Component {
             window.location.href = `http://admin.sipboo.com/api/payment?order_id=${params.order_group_id}&type=visa-charging&redirect=order`;
             // windowPayment = window.open(`http://admin.sipboo.com/api/payment?order_id=${params.order_group_id}&type=visa-charging`, "Visa banking", "centerscreen=yes,width=768,height=680");
           }
-          windowPayment.onload = function() { 
+          windowPayment.onload = function() {
             windowPayment.RunCallbackFunction = function() {
               console.warn(window)
-            }; 
+            };
           };
-          // 
+          //
         });
-	  		
+
 	  	}).catch( (error) => {
         if (error.response && error.response.data) {
-          
+
           this.setState({errorMessage: error.response.data.message});
 	        console.log( error.response.data)
 	      }
-	      
+
 	    });
     });
-    
+
   }
 
   changePaymentType(type) {
@@ -113,7 +113,7 @@ class RestaurantOrder extends React.Component {
   }
 
   handlePageClick(page) {
-    
+
     browserHistory.push(`/restaurant/order/${ this.state.rest_id}?page=${page.selected+1}`);
   };
   getSipboo() {
@@ -122,10 +122,10 @@ class RestaurantOrder extends React.Component {
       limit: this.state.limit,
       page: this.state.pagination.page
     }
-    
+
     this.setState({loading: true, dataList: []});
     Restaurants.actions.getSipboo.request(null, params).then(res => {
-      
+
       if (res.data && res.data.data) {
         this.setState({
           dataList: res.data.data,
@@ -143,7 +143,7 @@ class RestaurantOrder extends React.Component {
       this.setState({loading: false});
     });
   }
-  
+
   chooseASipboo(sipboo) {
     let prefix = this.state.prefix+"_"+window.location.pathname.replace("/restaurant/order/", "");
     let orderCache = localStorage.getItem(prefix) ? JSON.parse(localStorage.getItem(prefix)) : [];
@@ -176,9 +176,9 @@ class RestaurantOrder extends React.Component {
       browserHistory.push(`/restaurant/order/${this.props.params.id}?t=${t}&s=${sipboo.id}`);
     });
   }
- 
+
   getRest() {
-    
+
     let params = {
       id: this.props.params.id,
       lat: 0,
@@ -202,15 +202,15 @@ class RestaurantOrder extends React.Component {
         })
       });
     });
-    
-    
+
+
   }
   componentDidMount() {
     this.getSipboo();
     this.getRest();
-    
+
   }
- 
+
 
   render() {
     let childElements = this.state.dataList.map((item, i) => {
@@ -233,7 +233,7 @@ class RestaurantOrder extends React.Component {
     });
     return (
       <div id="content" className="restaurant_order_page">
-      
+
         <section>
 
           <div className="container">
@@ -253,10 +253,10 @@ class RestaurantOrder extends React.Component {
                     </ul>
                   )
                 }
-                
+
               </div>
             </div>
-            
+
             { this.state.loading && (
                 <div className="row">
                 {
@@ -285,19 +285,19 @@ class RestaurantOrder extends React.Component {
                       </div>
                     )
                   })
-                  
-                }  
+
+                }
                 </div>
             )
             }
-            
+
 
             {
               this.state.alreadyOrder === 1 ? (
                 <div className="row">
                   <div className="col-md-4 col-xs-12">
                     <div className="rest-item col-sm-12 col-xs-12">
-                      
+
                       <div className="post post-boxed mt-50">
                         <div className="post-image bg-image-rest" style={{
                             backgroundImage: `url(${this.state.rest.image})`
@@ -350,7 +350,7 @@ class RestaurantOrder extends React.Component {
                                 <td className="price">
                                 {item.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}
                                 </td>
-                                <td className="qty"> 
+                                <td className="qty">
                                   <input type="number" className="form-control input-sm input-qty" defaultValue={item.quantity}/>
                                 </td>
                                 <td className="total">
@@ -365,12 +365,12 @@ class RestaurantOrder extends React.Component {
                             )
                           })
                         }
-                        
+
                       </tbody>
-                      
+
 
                     </table>
-                  
+
 
                     <div className="row">
                       <div className="col-md-6 col-xs-12">
@@ -382,7 +382,7 @@ class RestaurantOrder extends React.Component {
                               <option value="DN_VN">Da Nang, Viet Nam</option>
                               <option value="AF" disabled>Ha Noi, Viet Nam</option>
                               <option value="HCM" disabled>Ho Chi Minh, Viet Nam</option>
-                              
+
                             </select>
                           </div>
                           <div className="form-group">
@@ -400,7 +400,7 @@ class RestaurantOrder extends React.Component {
                           {/* <button className="btn btn-filled btn-primary btn-sm">Calculate shipping</button> */}
                         </form>
                       </div>
-                      
+
                       {/* <div className="col-md-4">
                         <h5>Coupon code:</h5>
                         <form action="#">
@@ -410,7 +410,7 @@ class RestaurantOrder extends React.Component {
                           <button disabled className="btn btn-filled btn-primary btn-sm">Use coupon!</button>
                         </form>
                       </div> */}
-                      
+
                       <div className=" col-md-6 col-xs-12">
                         <h5>Order total:</h5>
                         <table className="table text-md">
@@ -422,7 +422,7 @@ class RestaurantOrder extends React.Component {
                           <tr>
                             <td className="text-right"><strong>Shipping:</strong></td>
                             <td>
-                              
+
                               {
                                 (
                                   (this.state.fee.onepay_fee) + (this.state.fee.shipping_fee * this.state.fee.rate * this.state.distance)
@@ -430,10 +430,10 @@ class RestaurantOrder extends React.Component {
                                   (
                                     ((this.state.fee.onepay_fee) + (this.state.fee.shipping_fee * this.state.fee.rate * this.state.distance)) * this.state.fee.service_fee / 100
                                   )
-                                
+
                                 ).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
                               }
-                              
+
                             </td>
                           </tr>
                           <tr>
@@ -449,15 +449,15 @@ class RestaurantOrder extends React.Component {
                                     (
                                       ((this.state.fee.onepay_fee) + (this.state.fee.shipping_fee * this.state.fee.rate * this.state.distance)) * this.state.fee.service_fee / 100
                                     )
-                                  
+
                                   )
                                 ).toLocaleString('it-IT', {style : 'currency', currency : 'VND'})
                               }
 
                               </strong></td>
-                              
+
                           </tr>
-                          
+
                             </tbody>
                         </table>
                         <div className=" col-md-12 col-xs-12 pl-0 pr-0">
@@ -473,16 +473,16 @@ class RestaurantOrder extends React.Component {
                               <td colSpan={2}>
                                 <div className="form-group">
                                   <div className="radio">
-                                    <input type="radio" value={this.state.paymenttype.local} 
+                                    <input type="radio" value={this.state.paymenttype.local}
                                     onChange={this.changePaymentType.bind(this, 0)} id="paymenttype1"
                                     checked={this.state.paymenttype.type === 0}/><label htmlFor="paymenttype1">Local banking</label>
                                   </div>
                                   <div className="radio">
-                                    <input type="radio" value={this.state.paymenttype.visa} 
+                                    <input type="radio" value={this.state.paymenttype.visa}
                                     onChange={this.changePaymentType.bind(this, 1)} id="paymenttype12"
                                     checked={this.state.paymenttype.type === 1} /><label htmlFor="paymenttype12">Visa - creditcard</label>
                                   </div>
-                                  
+
                                 </div>
                               </td>
                               </tr>
@@ -491,12 +491,12 @@ class RestaurantOrder extends React.Component {
                         </div>
                         <Link onClick={this.checkOut.bind(this)} className="btn btn-filled btn-primary btn-block pull-left">Go to checkout <i className="i-after ti-arrow-right"></i></Link>
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>
               ) : (
-                
+
                 <div className="row row-h500">
                   <div className="col-md-12">
                     <div className="section-star-coolpals">{childElements}</div>
@@ -514,11 +514,11 @@ class RestaurantOrder extends React.Component {
 
                     </div>
                   </div>
-                  
+
                 </div>
               )
             }
-            
+
 
           </div>
 

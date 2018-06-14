@@ -58,7 +58,7 @@ class Home extends React.Component {
       lng: lng,
       type: "web"
     }
-    
+
     User.actions.getSearchSipboo.request(null, params).then(res => {
       if (res.data && res.data.data) {
         this.setState({
@@ -87,7 +87,7 @@ class Home extends React.Component {
       params.lng = coords.lng;
       self.searchSipboo(params.lat, params.lng);
 
-      
+
       User.actions.getRest.request(null, params).then(res => {
         if (res.data && res.data.data) {
           if (isLoadMore) {
@@ -186,7 +186,7 @@ class Home extends React.Component {
                     return (
                       (i < 4) ? (
                       <div className="col-sm-3" key={i}>
-                      
+
                         <div className="star-coolpals">
                             <Link to={`/user/${item.id}`}>
                               <div className="sb-avatar" >
@@ -208,8 +208,8 @@ class Home extends React.Component {
                               </button>
                             </div>
                           </div>
-                       
-                        
+
+
                       </div>
                       ) : null
 
@@ -231,8 +231,8 @@ class Home extends React.Component {
               </div>
             </div>
             <div className="row">
-            
-                  
+
+
               { this.state.loading ?
                 this.state.itemDefault.map((item, i)=> {
                   return (
@@ -246,14 +246,14 @@ class Home extends React.Component {
                           <div className="background-masker"></div>
                           <div className="background-masker"></div>
                           <div className="background-masker"></div>
-                          
+
                           <div className="background-masker"></div>
                           <div className="background-masker"></div>
                           <div className="background-masker"></div>
                           <div className="background-masker"></div>
                           <div className="background-masker"></div>
                           <div className="background-masker"></div>
-                          
+
                         </div>
                       </div>
                     </div>

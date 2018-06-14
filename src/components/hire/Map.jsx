@@ -243,7 +243,7 @@ const MyMapComponent = compose(
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places&language=vi&region=vi`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div className="hire-map-container" />,
-    mapElement: <div style={{ height: `100%` }} /> 
+    mapElement: <div style={{ height: `100%` }} />
   }),
   withScriptjs,
   withGoogleMap
@@ -307,10 +307,10 @@ const FromGoogleMap = compose(
   lifecycle({
     componentWillMount() {
       const refs = {}
-      
+
       this.setState({
         places: [],
-        
+
         onSearchBoxMounted: ref => {
           refs.searchBox = ref;
         },
